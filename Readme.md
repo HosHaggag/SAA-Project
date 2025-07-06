@@ -131,3 +131,8 @@ s3://myBucket/saa/destination/test.jpg
 ![Download demo video](./demo.gif)
 
 
+## Thanks for watching, Let's connect! 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/hossam-haggag/)
+
+
+
