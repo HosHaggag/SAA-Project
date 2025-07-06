@@ -6,7 +6,7 @@
 
 Automatically resize images uploaded to an S3 bucket (to 100x100 px) and store the resized version in a different S3 folder using a Python-based AWS Lambda function.
 
-![Alt text](./Cloud-Architicture.png)
+![Alt text](./Cloud-Architecture.png)
 
 ---
 
@@ -52,7 +52,7 @@ Assume:
         "s3:PutObject"
       ],
       "Resource": [
-        "arn:aws:s3:::myBucket/uploads/*",
+        "arn:aws:s3:::myBucket/saa/source/*",
         "arn:aws:s3:::myBucket/saa/destination/*"
       ]
     }
