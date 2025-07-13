@@ -1,0 +1,49 @@
+<input type="file" id="fileInput" />
+<button onclick="upload()">Upload</button>
+
+<!--  enter your mail -->
+<input type="email" id="emailInput" placeholder="Enter your email" />
+
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1398.0.min.js"></script>
+<script>
+  AWS.config.region = 'us-east-1'; // ✅ your region
+  AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+    IdentityPoolId: 'us-east-1:e223cff7-6edd-4d42-99aa-0c1711ae3883', // ✅ required for browser SDK
+  });
+
+  const s3 = new AWS.S3({ params: { Bucket: 'saa-manara' } });
+
+  function upload() {
+    const file = document.getElementById('fileInput').files[0];
+    const email = document.getElementById('emailInput').value;
+    
+    // Check if a file was selected
+    if (!file) {
+      alert('Please select a file first');
+      return;
+    }
+
+    // Check if the file is an image
+    if (!file.type.startsWith('image/')) {
+      alert('Please select an image file');
+      return;
+    }
+
+    const params = {
+      Key: 'source/' + email,
+      Body: file,
+      ContentType: file.type,
+      ACL: 'private'
+    };
+
+    s3.upload(params, function(err, data) {
+      if (err) {
+        console.error('Upload error:', err);
+      } else {
+        // get only the key from the data.Location
+        alert('Image sent successfully to ' + email);
+
+      }
+    });
+  }
+</script>

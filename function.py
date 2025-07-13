@@ -24,7 +24,7 @@ def lambda_handler(event, context):
         img.save(buffer, format='JPEG')
         buffer.seek(0)
 
-        new_key = f"saa/destination/{os.path.basename(key)}"
+        new_key = f"destination/{os.path.basename(key)}"
 
         s3.put_object(
             Bucket=bucket,

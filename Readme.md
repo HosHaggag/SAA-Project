@@ -25,8 +25,8 @@ Automatically resize images uploaded to an S3 bucket (to 100x100 px) and store t
 Assume:
 
 * Bucket name: `myBucket`
-* Upload folder: `saa/source`
-* Resized images destination: `saa/destination/`
+* Upload folder: `source`
+* Resized images destination: `destination/`
 
 ### ✅ Upload Flow:
 
